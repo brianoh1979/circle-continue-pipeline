@@ -1,5 +1,5 @@
 #Commit to trigger build
-version: 2
+version: 2.1
 
 setup: true
 
@@ -14,7 +14,7 @@ jobs:
       - run:
           name: Generate /tmp/another-config.yml
           command: |
-            cat << EOD | tee /tmp/another-config.yml
+            cat \<< EOD | tee /tmp/another-config.yml
             version: 2
 
             jobs:

@@ -3,11 +3,21 @@ version: 2.1
 
 setup: true
 
+orbs:
+  docker: circleci/docker@2.0.1
+
 jobs:
   build:
     docker:
       - image: alpine
     steps:
+      - checkout
+      - setup_remote_docker
+      - docker/check
+      - docker/build:
+          image: brianoh1979/circleci-demo-docker3
+      - docker/push:
+          image: brianoh1979/circleci-demo-docker3
       - run:
           name: Install cURL and jq
           command: apk add curl jq
@@ -20,7 +30,7 @@ jobs:
             jobs:
               build:
                 docker:
-                  - image: alpine
+                  - image: brianoh1979/circleci-demo-docker3
                 steps:
                   - run: echo "Hello from another workflow!"
             EOD

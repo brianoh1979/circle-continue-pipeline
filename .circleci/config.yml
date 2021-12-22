@@ -13,7 +13,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - docker/check
+#      - docker/check
       - docker/build:
           image: brianoh1979/circleci-demo-docker3
       - docker/push:

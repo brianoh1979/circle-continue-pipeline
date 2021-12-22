@@ -18,11 +18,11 @@ jobs:
           cache_from: brianoh1979/circleci-demo-docker4
           image: brianoh1979/circleci-demo-docker5
           registry: docker.io
-          tag: latest
+          tag: $CIRCLE_SHA1
       - docker/push:
           image: brianoh1979/circleci-demo-docker5
           registry: docker.io
-          tag: latest
+          tag: $CIRCLE_SHA1
       - run:
           name: Install cURL and jq
           command: sudo apt-get update && sudo apt-get install jq curl
@@ -35,7 +35,7 @@ jobs:
             jobs:
               build:
                 docker:
-                  - image: brianoh1979/circleci-demo-docker5:latest
+                  - image: brianoh1979/circleci-demo-docker5:$CIRCLE_SHA1
                 steps:
                   - run: echo "Hello from another workflow!"
             EOD

@@ -15,12 +15,12 @@ jobs:
       - setup_remote_docker
       - docker/check
       - docker/build:
-          cache_from: brianoh1979/circleci-demo-docker3
-          image: brianoh1979/circleci-demo-docker4
+          cache_from: brianoh1979/circleci-demo-docker4
+          image: brianoh1979/circleci-demo-docker5
           registry: docker.io
           tag: latest
       - docker/push:
-          image: brianoh1979/circleci-demo-docker4
+          image: brianoh1979/circleci-demo-docker5
           registry: docker.io
           tag: latest
       - run:
@@ -35,7 +35,7 @@ jobs:
             jobs:
               build:
                 docker:
-                  - image: brianoh1979/circleci-demo-docker4:latest
+                  - image: brianoh1979/circleci-demo-docker5:latest
                 steps:
                   - run: echo "Hello from another workflow!"
             EOD

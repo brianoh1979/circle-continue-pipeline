@@ -20,7 +20,7 @@ jobs:
           image: brianoh1979/circleci-demo-docker3
       - run:
           name: Install cURL and jq
-          command: apk add curl jq
+          command: sudo apt-get update && sudo apt-get install jq curl
       - run:
           name: Generate /tmp/another-config.yml
           command: |

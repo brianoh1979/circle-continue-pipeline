@@ -17,7 +17,7 @@ jobs:
       - docker/build:
           image: brianoh1979/circleci-demo-docker4
       - docker/push:
-          image: brianoh1979/circleci-demo-docker4
+          image: brianoh1979/circleci-demo-docker4:latest
       - run:
           name: Install cURL and jq
           command: sudo apt-get update && sudo apt-get install jq curl
@@ -30,7 +30,7 @@ jobs:
             jobs:
               build:
                 docker:
-                  - image: brianoh1979/circleci-demo-docker4
+                  - image: brianoh1979/circleci-demo-docker4:latest
                 steps:
                   - run: echo "Hello from another workflow!"
             EOD

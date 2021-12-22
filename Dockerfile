@@ -1,2 +1,2 @@
 FROM circleci/python:3.9
-#RUN Sudo apt-get update && sudo apt-get install awscli
+RUN sudo pip install --no-cache pipenv poetry && sudo apt-get update && sudo apt-get install -y libgbm1

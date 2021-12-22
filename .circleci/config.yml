@@ -15,7 +15,7 @@ jobs:
       - setup_remote_docker
       - docker/check
       - docker/build:
-          image: brianoh1979/circleci-demo-docker3
+          image: brianoh1979/circleci-demo-docker4
       - docker/push:
           image: brianoh1979/circleci-demo-docker4
       - run:
